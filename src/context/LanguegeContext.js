@@ -5,21 +5,21 @@ const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
     const [language, setLanguage] = useState("en"); // Default to English
+    const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            const storedLanguage = localStorage.getItem("language");
-            if (storedLanguage) {
-                setLanguage(storedLanguage); // Update state after mounting
-            }
+        setIsClient(true); // Only runs on the client
+        const storedLanguage = localStorage.getItem("language");
+        if (storedLanguage) {
+            setLanguage(storedLanguage);
         }
     }, []);
 
     useEffect(() => {
-        if (typeof window !== "undefined") {
+        if (isClient) {
             localStorage.setItem("language", language);
         }
-    }, [language]);
+    }, [language, isClient]);
 
     return (
         <LanguageContext.Provider value={{ language, setLanguage }}>
