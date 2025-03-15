@@ -1,22 +1,36 @@
 "use client";
-import { useLanguage } from "@/context/LanguegeContext";
+
 import { useState, useEffect } from "react";
 
 const Menu = ({ menu }) => {
-    const { language } = useLanguage();
-    const [hydrated, setHydrated] = useState(false);
+    const [language, setLanguage] = useState("en"); // Default to English
 
+    // Load language from localStorage when component mounts
     useEffect(() => {
-        setHydrated(true);
-    }, []);
+        if (typeof window !== "undefined") {
+            const storedLanguage = localStorage.getItem("language");
+            if (storedLanguage) {
+                setLanguage(storedLanguage);
+            }
+        }
 
-    if (!hydrated) {
-        return <div>Loading...</div>; // Prevents mismatch by rendering nothing at first
-    }
+        // Listen for language changes in localStorage
+        const handleStorageChange = (event) => {
+            if (event.key === "language") {
+                setLanguage(event.newValue || "en");
+            }
+        };
+
+        window.addEventListener("storage", handleStorageChange);
+
+        return () => {
+            window.removeEventListener("storage", handleStorageChange);
+        };
+    }, []);
 
     return (
         <div className="md:mx-50 mb-20">
-            <h2 className=" text-3xl md:text-4xl mt-10 font-bold mb-4 text-center text-black border-b border-gray-300">
+            <h2 className="text-3xl md:text-4xl mt-10 font-bold mb-4 text-center text-black border-b border-gray-300">
                 Menu
             </h2>
             {menu ? menu.map((m) => (

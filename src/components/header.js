@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { FaPhone } from "react-icons/fa6";
 import { getSiteSettings, urlFor } from "@/services/sanityClient";
 import formatPhoneNumber from "@/services/helper";
-import Language from "./languege";
+
 const Header = ({ siteSettings }) => {
     const [isOpen, setIsOpen] = useState(false);
 
