@@ -1,4 +1,4 @@
-import { getMenu, getSiteSettings } from "@/services/sanityClient";
+import { getMenu, getMenuFromSanity, getSiteSettings } from "@/services/sanityClient";
 import Banner from "@/components/banner";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
@@ -7,7 +7,7 @@ import Menu from "@/components/menu";
 
 const HomePage = async () => {
     const siteSettings = await getSiteSettings();
-    const menu = await getMenu()
+    const menu = await getMenuFromSanity()
     return (
         <div>
             <header className="bg-white py-2 shadow-md slide-down sticky top-0 z-50">

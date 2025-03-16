@@ -20,7 +20,7 @@ const Header = ({ siteSettings }) => {
                     animate={{ x: 0, opacity: 1, rotate: [0, -5, 5, -3, 3, 0] }}
                     transition={{ duration: 1, ease: "easeInOut" }}
                 >
-                    <img src={siteSettings?.logo?.asset ? urlFor(siteSettings.logo.asset._ref) : "/logo-2.png"} className="h-16 md:h-28" />
+                    <img src={siteSettings?.logo?.asset ? urlFor(siteSettings.logo.asset._ref) : ""} className="h-16 md:h-28" />
                 </motion.div>
 
 
