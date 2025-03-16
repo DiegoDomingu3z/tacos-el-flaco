@@ -32,6 +32,7 @@ const Header = ({ siteSettings }) => {
                 >
                     <nav className="hidden md:flex space-x-6 text-3xl">
                         <a href="#" className="text-gray-700 hover:text-gray-900">Menu</a>
+                        <a href="https://maps.apple.com/?q=37.7749,-122.4194" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900">Location</a>
                         <a href="#" className="text-gray-700 hover:text-gray-900">About</a>
                         <a href="#" className="text-gray-700 hover:text-gray-900">Contact</a>
                     </nav>
@@ -47,7 +48,7 @@ const Header = ({ siteSettings }) => {
 
                 </motion.div>
                 {/* Mobile Menu Button */}
-                <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
+                <button onClick={() => setIsOpen(!isOpen)} className="md:hidden alt">
                     {isOpen ? "closed" : "OPEN"}
                 </button>
             </div>
@@ -57,14 +58,11 @@ const Header = ({ siteSettings }) => {
                 <div className="md:hidden bg-white border-t">
                     <nav className="flex flex-col items-center py-4 space-y-4">
                         <a href="#" className="text-gray-700 hover:text-gray-900">Menu</a>
-                        <a href="#" className="text-gray-700 hover:text-gray-900">Catering</a>
-                        <a href="#" className="text-gray-700 hover:text-gray-900">Locations</a>
-                        <a href="#" className="text-gray-700 hover:text-gray-900">Rewards</a>
-                        <a href="#" className="text-gray-700 hover:text-gray-900">Gifts</a>
-                        <a href="#" className="text-gray-700 hover:text-gray-900">Careers</a>
-                        <a href="#" className="bg-black text-white px-5 py-2 rounded-full">
-                            ORDER NOW
-                        </a>
+                        <a href="#" className="text-gray-700 hover:text-gray-900">Location</a>
+                        <a href="#" className="text-gray-700 hover:text-gray-900">About</a>
+                        <a href="#" className="text-gray-700 hover:text-gray-900">Contact</a>
+
+
                     </nav>
                 </div>
             )}

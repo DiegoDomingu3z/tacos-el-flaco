@@ -28,6 +28,7 @@ export async function getMenuFromSanity() {
                     image
                 }
                 }`)
+        console.log(menu)
         return menu
     } catch (error) {
         console.error(error)
@@ -47,6 +48,7 @@ export async function getSiteSettings() {
                 facebookUrl
             }
         `);
+        console.log(siteSettings)
         return siteSettings;
     } catch (error) {
         console.error('Error fetching site settings:', error);

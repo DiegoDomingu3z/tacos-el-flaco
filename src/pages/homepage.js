@@ -27,7 +27,7 @@ const HomePage = async () => {
             {/* Floating Footer */}
 
             <footer>
-                <Footer />
+                <Footer siteSettings={siteSettings} />
             </footer>
         </div>
     );

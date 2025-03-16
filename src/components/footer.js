@@ -1,4 +1,9 @@
-const Footer = () => {
+import formatPhoneNumber from "@/services/helper";
+
+const Footer = ({ siteSettings }) => {
+    if (siteSettings) {
+        console.log(siteSettings)
+    }
     return (
         <div className="bg-black text-white py-10">
             <div className="container mx-auto flex flex-col md:flex-row justify-between px-10">
@@ -62,12 +67,15 @@ const Footer = () => {
                 <div>
                     <h2 className="font-bold text-lg">Contact Us</h2>
                     <p className="mt-2">
-                        <strong>13th Street Location</strong><br />
-                        (208)-323-4688
+                        <a href={`tel:+${siteSettings?.phoneNumber ? '' : ''}`}>
+                            {formatPhoneNumber(siteSettings?.phoneNumber)}
+                        </a>
                     </p>
 
                     <p className="mt-4">
-                        social@parrillagrillhydepark.com
+                        <a href={`mailto:${siteSettings?.email}`} className="text-white underline">
+                            {siteSettings?.email}
+                        </a>
                     </p>
                 </div>
 

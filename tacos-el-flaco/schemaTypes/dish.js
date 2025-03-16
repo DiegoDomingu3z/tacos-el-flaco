@@ -30,8 +30,8 @@ export default {
             type: "number",
             title: "Default Price of the Dish",
             description: "Used when the dish has a single price.",
-            hidden: ({ parent }) => parent?.sizes?.length > 0, // Hide if sizes exist
-            validation: (Rule) => Rule.required()
+            hidden: ({ parent }) => parent?.sizes?.length > 0,
+            validation: (Rule) => Rule.required().precision(2),
         },
         {
             name: "sizes",
@@ -58,7 +58,8 @@ export default {
                             name: "price",
                             type: "number",
                             title: "Price for this Size",
-                            validation: (Rule) => Rule.required()
+                            validation: (Rule) => Rule.required().precision(2),
+
                         }
                     ]
                 }
