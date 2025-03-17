@@ -2,8 +2,8 @@ export default {
     name: "business",
     title: "Business",
     type: "document",
+    __experimental_actions: ["update", "publish"], // Disable "create" and "delete"
     fields: [
-
         {
             name: 'street',
             title: 'Address Street',
@@ -42,13 +42,13 @@ export default {
                             type: "string",
                             options: {
                                 list: [
-                                    { title: "Monday", value: "monday" },
-                                    { title: "Tuesday", value: "tuesday" },
-                                    { title: "Wednesday", value: "wednesday" },
-                                    { title: "Thursday", value: "thursday" },
-                                    { title: "Friday", value: "friday" },
-                                    { title: "Saturday", value: "saturday" },
-                                    { title: "Sunday", value: "sunday" },
+                                    { title: "Monday", value: "Monday" },
+                                    { title: "Tuesday", value: "Tuesday" },
+                                    { title: "Wednesday", value: "Wednesday" },
+                                    { title: "Thursday", value: "Thursday" },
+                                    { title: "Friday", value: "Friday" },
+                                    { title: "Saturday", value: "Saturday" },
+                                    { title: "Sunday", value: "Sunday" },
                                 ],
                             },
                         },
@@ -91,5 +91,5 @@ export default {
                 },
             ],
         },
-    ]
-}
+    ],
+};

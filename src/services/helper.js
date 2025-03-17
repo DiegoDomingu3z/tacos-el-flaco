@@ -11,4 +11,11 @@ const formatPhoneNumber = (phoneNumber) => {
     return phoneNumber; // Return as is if not a valid format
 };
 
-export default formatPhoneNumber;
+function capitalizeFirstLetter(word) {
+    if (!word) return ''; // Handle empty input
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+
+
+export default { formatPhoneNumber, capitalizeFirstLetter };

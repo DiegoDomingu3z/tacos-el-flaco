@@ -2,6 +2,7 @@
 
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
+
 export const client = createClient({
     projectId: '163neu8n',
     dataset: 'production',
@@ -9,8 +10,7 @@ export const client = createClient({
     apiVersion: '2025-02-06',
 })
 
-
-export async function getMenuFromSanity() {
+export async function getMenuFromSanity(context) {
     try {
         const menu = await client.fetch(`
             *[_type == "menu-category"] | order(order asc){
@@ -27,12 +27,12 @@ export async function getMenuFromSanity() {
                     sizes,
                     image
                 }
-                }`)
-        console.log(menu)
-        return menu
+            }`);
+        console.log("Fetched menu data from Sanity:", menu);
+        return menu;
     } catch (error) {
-        console.error(error)
-        return null
+        console.error("Error fetching menu from Sanity:", error);
+        return null;
     }
 }
 
@@ -48,7 +48,6 @@ export async function getSiteSettings() {
                 facebookUrl
             }
         `);
-        console.log(siteSettings)
         return siteSettings;
     } catch (error) {
         console.error('Error fetching site settings:', error);
@@ -56,6 +55,19 @@ export async function getSiteSettings() {
     }
 }
 
+export async function getBusinessInfo() {
+    try {
+        console.log("RUNNING")
+        const businessInfo = await client.
+            fetch(`
+            *[_type == "business"][0]
+            `)
+        return businessInfo
+    } catch (error) {
+        console.error('Error fetching site settings:', error);
+        return null;
+    }
+}
 
 const builder = imageUrlBuilder(client);
 
