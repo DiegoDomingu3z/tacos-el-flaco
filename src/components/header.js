@@ -109,7 +109,6 @@ const Header = ({ siteSettings, menu }) => {
                                 <a href="#" className="text-gray-700 hover:text-gray-900">Location</a>
                                 <a href="#" className="text-gray-700 hover:text-gray-900">About</a>
                                 <a href="#" className="text-gray-700 hover:text-gray-900">Contact</a>
-                                <a href="#" className="text-gray-700 hover:text-gray-900">Call us</a>
                             </nav>
                         </div>
                     </motion.div>
