@@ -52,7 +52,7 @@ const Header = ({ siteSettings, menu }) => {
                     transition={{ duration: 1, ease: "easeInOut" }}
                 >
                     <nav className="hidden md:flex space-x-6 text-3xl">
-                        <a href="#" className="text-gray-700 hover:text-gray-900" onClick={() => scrollTo('main-menu')}>Menu</a>
+                        <a className="text-gray-700 hover:text-gray-900" onClick={() => scrollTo('main-menu')}>Menu</a>
                         <a href="https://maps.apple.com/?q=37.7749,-122.4194" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900">Location</a>
                         <a href="#" className="text-gray-700 hover:text-gray-900">About</a>
                         <a href="#" className="text-gray-700 hover:text-gray-900">Contact</a>
