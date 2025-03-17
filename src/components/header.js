@@ -8,6 +8,7 @@ import formatPhoneNumber from "@/services/helper";
 import helper from "@/services/helper";
 import { IoMenu, IoClose } from "react-icons/io5";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import Image from "next/image";
 
 
 const Header = ({ siteSettings, menu }) => {
@@ -24,7 +25,13 @@ const Header = ({ siteSettings, menu }) => {
                     animate={{ x: 0, opacity: 1, rotate: [0, -5, 5, -3, 3, 0] }}
                     transition={{ duration: 1, ease: "easeInOut" }}
                 >
-                    <img src={siteSettings?.logo?.asset ? urlFor(siteSettings.logo.asset._ref) : ""} className="h-16 md:h-28" />
+                    <Image
+                        src={siteSettings?.logo?.asset ? urlFor(siteSettings.logo.asset._ref) : ""}
+                        alt="Logo"
+                        width={150} // Set a reasonable default width
+                        height={80} // Set a reasonable default height
+                        className="h-16 md:h-28 w-auto object-contain"
+                    />
                 </motion.div>
 
 
@@ -83,8 +90,8 @@ const Header = ({ siteSettings, menu }) => {
                                             transition={{ duration: 0.2, ease: "easeInOut" }}
                                             className=" mt-2 flex flex-col space-y-4 border-b border-gray-300   w-full "
                                         >
-                                            {menu ? menu.map((m) => (
-                                                <a href="#" className="text-gray-600 hover:text-gray-800">{m.title}</a>
+                                            {menu ? menu.map((m, index) => (
+                                                <a key={index} href="#" className="text-gray-600 hover:text-gray-800">{m.title}</a>
                                             )) : null}
                                         </motion.div>
                                     )}

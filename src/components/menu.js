@@ -1,6 +1,7 @@
 "use client";
 
 import { urlFor } from "@/services/sanityClient";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const Menu = ({ menu }) => {
@@ -52,7 +53,13 @@ const Menu = ({ menu }) => {
                                     </p>
                                     <p className="font-bold text-lg mt-2">${dish.price.toFixed(2)}</p>
                                 </div>
-                                <img src={dish.image?.asset._ref ? urlFor(dish.image?.asset._ref) : ""} alt="dish image" className="md:w-25" />
+                                <Image
+                                    src={dish.image?.asset._ref ? urlFor(dish.image?.asset._ref) : ""}
+                                    alt="Dish image"
+                                    width={200} // Default width
+                                    height={200} // Default height
+                                    className="w-25 h-25 md:w-25 m:h-auto :object-cover rounded-lg"
+                                />
                             </div>
                         )) : null}
                     </div>
