@@ -5,6 +5,12 @@ export default {
     __experimental_actions: ["update", "publish"], // Disable "create" and "delete"
     fields: [
         {
+            name: 'mainLogo',
+            title: 'Link Logo',
+            type: 'image',
+            options: { hotspot: true }
+        },
+        {
             name: 'street',
             title: 'Address Street',
             type: 'string',
