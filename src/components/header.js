@@ -14,6 +14,16 @@ import Image from "next/image";
 const Header = ({ siteSettings, menu }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isSubOpen, setIsSubOpen] = useState(false);
+
+    const scrollTo = (id) => {
+        setIsOpen(false)
+        setIsSubOpen(false)
+        const target = document.getElementById(id)
+        const offset = 100; // Adjust this value to control how much less it scrolls down
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    }
     return (
         <header className="w-full">
             <div className="container mx-auto px-3 md:px-4 lg:px-10 flex justify-between items-center ">
@@ -28,8 +38,8 @@ const Header = ({ siteSettings, menu }) => {
                     <Image
                         src={siteSettings?.logo?.asset ? urlFor(siteSettings.logo.asset._ref) : ""}
                         alt="Logo"
-                        width={150} // Set a reasonable default width
-                        height={80} // Set a reasonable default height
+                        width={150}
+                        height={80}
                         className="h-16 md:h-28 w-auto object-contain"
                     />
                 </motion.div>
@@ -42,7 +52,7 @@ const Header = ({ siteSettings, menu }) => {
                     transition={{ duration: 1, ease: "easeInOut" }}
                 >
                     <nav className="hidden md:flex space-x-6 text-3xl">
-                        <a href="#" className="text-gray-700 hover:text-gray-900">Menu</a>
+                        <a href="#" className="text-gray-700 hover:text-gray-900" onClick={() => scrollTo('main-menu')}>Menu</a>
                         <a href="https://maps.apple.com/?q=37.7749,-122.4194" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900">Location</a>
                         <a href="#" className="text-gray-700 hover:text-gray-900">About</a>
                         <a href="#" className="text-gray-700 hover:text-gray-900">Contact</a>
@@ -91,7 +101,7 @@ const Header = ({ siteSettings, menu }) => {
                                             className=" mt-2 flex flex-col space-y-4 border-b border-gray-300   w-full "
                                         >
                                             {menu ? menu.map((m, index) => (
-                                                <a key={index} href="#" className="text-gray-600 hover:text-gray-800">{m.title}</a>
+                                                <a key={index} onClick={() => scrollTo(m._id)} className="text-gray-600 hover:text-gray-800">{m.title}</a>
                                             )) : null}
                                         </motion.div>
                                     )}

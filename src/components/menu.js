@@ -31,13 +31,13 @@ const Menu = ({ menu }) => {
     }, []);
 
     return (
-        <div className="md:mx-50 mb-20">
+        <div className="md:mx-50 mb-20" id="main-menu">
             <h2 className="text-3xl md:text-4xl mt-10 font-bold mb-4 text-center text-black ">
                 Menu
             </h2>
             {menu ? menu.map((m) => (
                 <div key={m._id} className="md:mb-8">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 px-4 md:px-0 text-black">
+                    <h3 id={m._id} className="text-2xl md:text-3xl font-bold mb-4 px-4 md:px-0 text-black mt-5">
                         {m.title}
                     </h3>
                     <div className="grid md:gap-6 md:grid-cols-2 cursor-pointer">
