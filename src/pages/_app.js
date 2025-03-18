@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
                 <meta name="author" content="Tacos El Flaco" />
                 <meta property="og:title" content="Tacos El Flaco - Best Tacos in Boise" />
                 <meta property="og:description" content="Come try our amazing street tacos in Boise! Authentic Mexican flavors await." />
-                <meta property="og:image" content={urlFor(pageProps.businessInfo?.mainLogo?.asset._ref)} />
+                <meta property="og:image" content={pageProps.businessInfo?.mainLogo?.asset._ref ? urlFor(pageProps.businessInfo?.mainLogo?.asset._ref) : ""} />
                 <meta property="og:url" content="https://www.tacos-el-flaco.com" />
 
                 {/* Add this line for the favicon */}
