@@ -1,8 +1,10 @@
 import Head from "next/head";
 import "../styles/global.css";
-import { GoogleTagManager } from '@next/third-parties/google'
-export default function App({ Component, pageProps }) {
+import { GoogleTagManager } from '@next/third-parties/google';
+import { urlFor } from "@/services/sanityClient";
 
+export default function App({ Component, pageProps }) {
+    console.log(pageProps)
     return (
         <>
             <Head>
@@ -12,12 +14,13 @@ export default function App({ Component, pageProps }) {
                 <meta name="author" content="Tacos El Flaco" />
                 <meta property="og:title" content="Tacos El Flaco - Best Tacos in Boise" />
                 <meta property="og:description" content="Come try our amazing street tacos in Boise! Authentic Mexican flavors await." />
-                <meta property="og:image" content="/fonts/logo.jpg" />
-                <meta property="og:url" content="https://www.tacoselflaco.com" />
+                <meta property="og:image" content={urlFor(pageProps.businessInfo?.mainLogo?.asset._ref)} />
+                <meta property="og:url" content="https://www.tacos-el-flaco.com" />
+
+                {/* Add this line for the favicon */}
             </Head>
             <GoogleTagManager gtmId="G-H9FMB17PGY" />
-            <Component {...pageProps} />;
+            <Component {...pageProps} />
         </>
-    )
-
+    );
 }

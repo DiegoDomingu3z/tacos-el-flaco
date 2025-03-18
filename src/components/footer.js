@@ -2,10 +2,6 @@ import helper from "@/services/helper";
 import formatPhoneNumber from "@/services/helper";
 
 const Footer = ({ siteSettings, businessInfo }) => {
-    if (siteSettings) {
-        console.log(businessInfo)
-
-    }
     return (
         <div className="bg-black text-white py-10">
             <div className="container mx-auto flex flex-col md:flex-row justify-between px-10">
@@ -16,9 +12,8 @@ const Footer = ({ siteSettings, businessInfo }) => {
                     <p className="mt-2">
                         <strong>{businessInfo?.street}</strong><br />
                         {businessInfo?.city}, {businessInfo?.state}<br />
-                        {businessInfo?.zip_code}
+                        {businessInfo?.zip_code}∫
                     </p>
-
                 </div>
 
                 {/* Hours Section */}
